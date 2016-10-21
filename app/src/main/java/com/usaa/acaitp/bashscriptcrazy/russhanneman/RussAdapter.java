@@ -19,7 +19,7 @@ import java.util.List;
 ;
 
 /**
- * Created by christophercoffee on 9/21/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class RussAdapter extends RecyclerView.Adapter<RussAdapter.MyViewHolder> {
@@ -49,7 +49,7 @@ public class RussAdapter extends RecyclerView.Adapter<RussAdapter.MyViewHolder> 
                     CM_fragment updateDetailFrag = new CM_fragment();
                     FragmentActivity mycontext = (FragmentActivity)mContext;
                     updateDetailFrag.launchFragWithName(mycontext,"Place_update_detail",args);
-                    //Toast.makeText(mContext,"row clicked: " + getAdapterPosition(),Toast.LENGTH_LONG).show();
+
 
                 }
             });
@@ -59,8 +59,7 @@ public class RussAdapter extends RecyclerView.Adapter<RussAdapter.MyViewHolder> 
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //Places place = mMemberList.get(getAdapterPosition());
-                    //Toast.makeText(mContext,"name clicked : " + place.getName(),Toast.LENGTH_LONG).show();
+
                 }
             });
 
@@ -69,12 +68,10 @@ public class RussAdapter extends RecyclerView.Adapter<RussAdapter.MyViewHolder> 
                 @Override
                 public void onClick(View v) {
                     Places place = mMemberList.get(getAdapterPosition());
-                    place.setName("cool");
                     Place_crud place_crud = Place_crud.get(mContext);
                     place_crud.deleteMember(place);
                     mMemberList.clear();
-                    mMemberList = place_crud.getMembers(null,null,"id desc");
-                    //System.out.println("memlist size in adapter " +mMemberList.size());
+                    mMemberList = place_crud.getMembers(null,null,null);
                     notifyDataSetChanged();
                 }
             });

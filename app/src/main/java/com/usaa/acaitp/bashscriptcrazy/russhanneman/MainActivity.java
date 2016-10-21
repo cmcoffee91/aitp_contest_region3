@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         FragmentManager fragmentManager = getFragmentManager();
         Fragment start_frag = fragmentManager.findFragmentById(R.id.fragment_container);
         if(start_frag == null) {

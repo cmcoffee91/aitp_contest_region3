@@ -11,5 +11,9 @@
         android:title="Add Place"
         app:showAsAction="always" />
 
+    <item android:id="@+id/menu_sort"
+        android:title="Sort"
+        app:showAsAction="always" />
+
 
 </menu>

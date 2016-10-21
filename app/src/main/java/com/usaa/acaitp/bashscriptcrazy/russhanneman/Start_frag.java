@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Created by christophercoffee on 9/20/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 
@@ -112,6 +112,12 @@ public class Start_frag extends Fragment {
                 CM_fragment frag = new CM_fragment();
                 frag.launchFragWithName(getActivity(),"Place_detail",null);
                 return true;
+            case R.id.menu_sort:
+                Place_crud place_crud = Place_crud.get(getActivity());
+                mMemberList = place_crud.getMembers(null,null,"name asc");
+                mMemberAdapter.setmMemberList(mMemberList);
+                mMemberAdapter.notifyDataSetChanged();
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -126,8 +132,8 @@ public class Start_frag extends Fragment {
 
     private void updateUI()
     {
-        Place_crud user_crud = Place_crud.get(getActivity());
-        mMemberList = user_crud.getMembers(null,null,null);
+        Place_crud place_crud = Place_crud.get(getActivity());
+        mMemberList = place_crud.getMembers(null,null,null);
         if(mMemberAdapter == null)
         {
             mMemberAdapter = new RussAdapter(mMemberList,getActivity());
@@ -142,7 +148,6 @@ public class Start_frag extends Fragment {
 
     public void lookForMember(String query)
     {
-        List<Places> new_memberList = new ArrayList<>();
         Place_crud user_crud = Place_crud.get(getActivity());
 
         if(!query.trim().isEmpty())
@@ -152,7 +157,6 @@ public class Start_frag extends Fragment {
             mMemberList.clear();
             mMemberList = user_crud.getMembers(PlaceDbSchema.PlaceTable.Cols.NAME + " LIKE ?",new String[] {"%" + query +"%"},null);
             mMemberAdapter.setmMemberList(mMemberList);
-            System.out.println("memberlist size in search " + mMemberList.size());
             mMemberAdapter.notifyDataSetChanged();
         }
         else

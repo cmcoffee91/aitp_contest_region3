@@ -3,14 +3,12 @@ package com.usaa.acaitp.bashscriptcrazy.russhanneman;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,7 +28,7 @@ import java.io.IOException;
 
 
 /**
- * Created by christophercoffee on 10/16/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class Place_update_detail extends Fragment {
@@ -81,9 +79,6 @@ public class Place_update_detail extends Fragment {
             public void onClick(View v) {
 
 
-
-
-                // Creates an Intent that will load a map of San Francisco
                 Uri gmmIntentUri = Uri.parse("geo:" + place.getLatitude() + "," + place.getLongitude());
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
@@ -93,12 +88,6 @@ public class Place_update_detail extends Fragment {
         });
 
 
-
-
-
-
-        final Intent captureImage = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        PackageManager packageManager = getActivity().getPackageManager();
         PictureUtils pictureUtils = new PictureUtils();
         mPhotoFile = pictureUtils.getPhotoFile(getActivity(),place);
 
@@ -126,10 +115,7 @@ public class Place_update_detail extends Fragment {
         }
 
         if (requestCode == REQUEST_PHOTO) {
-            //   Bundle extras = data.getExtras();
-            //Bitmap bmp = (Bitmap) extras.get("data");
-            //   Uri uri = Uri.fromFile(mPhotoFile);
-            // mPhotoView.setImageBitmap(BitmapFactory.decodeFile(mPhotoFile.getPath()));
+
             setPhotoView();
         }
     }

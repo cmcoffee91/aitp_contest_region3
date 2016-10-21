@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 /**
- * Created by christophercoffee on 10/15/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class Places implements Serializable {

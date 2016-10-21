@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by christophercoffee on 10/12/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class Place_crud {
@@ -41,7 +41,6 @@ public class Place_crud {
         values.put(PlaceTable.Cols.VISITS, place.getVisits());
         values.put(PlaceTable.Cols.TIME, place.getTime());
         values.put(PlaceTable.Cols.PIC_LOCATION, place.getPicLoc());
-       // values.put(PlaceTable.Cols.PRIVILEGE, place.getPrivilege() ? 1 : 0);
 
         return values;
     }

@@ -45,7 +45,7 @@ import java.util.UUID;
 
 
 /**
- * Created by christophercoffee on 9/20/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class Place_detail extends Fragment {
@@ -135,8 +135,7 @@ public class Place_detail extends Fragment {
         View v = inflater.inflate(R.layout.place_detail_view,container,false);
 
         Bundle args = getArguments();
-        //Member member = (Member) args
-        //     .getSerializable("member");
+
 
 
 

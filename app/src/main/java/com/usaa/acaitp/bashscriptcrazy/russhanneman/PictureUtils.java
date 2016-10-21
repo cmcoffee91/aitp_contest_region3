@@ -18,7 +18,7 @@ import android.util.Log;
 import java.io.File;
 
 /**
- * Created by christophercoffee on 10/15/16.
+ * Created by christophercoffee on 10/20/16.
  */
 
 public class PictureUtils {
